@@ -1,0 +1,33 @@
+.car-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Yarı saydam siyah arka plan */
+    color: white; /* Beyaz metin rengi */
+    padding: 5px; /* İçerik etrafında biraz boşluk */
+    width: 100%; /* Konteynırın tam genişliğini kaplar */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Elemanları yatayda aralarında boşluk bırakarak hizalar */
+    font-size: large;
+    font-weight: 600;
+    flex-wrap: wrap; /* Elemanların taşması durumunda alt satıra geçmesini sağlar */
+  }
+  
+  .car-details {
+    display: grid;
+    margin-left: 10px; 
+  }
+  
+  .car-price {
+    color: rgb(164, 9, 9);
+    font-size: x-large;
+  }
+  
+  .car-segment {
+    color: rgb(224 148 3);
+    font-size: large; 
+    margin-right: 10px;
+  }
+  

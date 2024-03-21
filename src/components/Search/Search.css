@@ -1,0 +1,74 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px); /* Başlangıç pozisyonu aşağıda */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Bitiş pozisyonu yukarıda */
+    }
+  }
+
+.search-label{
+  color: rgb(255, 255, 255);
+  font-size: 26px
+}
+
+.text-fadeInUpFast {
+    z-index: +2;
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+
+  .search-button {
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  min-width: 270px;
+  padding: 16px 24px;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  width: 100%;
+  }
+
+  .search-button:hover {
+    transition-duration: 1.5s;
+    box-shadow: inset 0 -100px 0 0 #8C1816;
+  }
+  
+  .search-button:active {
+    transform: scale(0.97);
+    box-shadow: inset 0 -100px 0 0 rgb(189, 8, 8);
+    transition-duration: .2s;
+  }
+  
+  .search-button:hover .wheelIcon {
+    transform: rotate(250deg);
+    transition-duration: 1.5s;
+  }
+  
+  
+  .wheelIcon {
+    height: 25px;
+    margin-left: 20px;
+    transition-duration: 1.5s;
+  }
+
+  
+  
+  
+
+

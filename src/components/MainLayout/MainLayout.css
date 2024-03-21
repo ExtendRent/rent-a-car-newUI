@@ -1,0 +1,45 @@
+
+  .ant-menu-item-selected, .ant-menu-submenu-selected {
+    background-color: transparent !important; /* Seçilen menü öğesinin arka plan rengini kırmızı yap */
+    color: #ffffff !important; /* Seçilen menü öğesinin metin rengini beyaz yap */
+  }
+
+
+  .ant-menu-light.ant-menu-horizontal > .ant-menu-item:hover::after,
+  .ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-item:hover::after,
+  .ant-menu-light.ant-menu-horizontal > .ant-menu-submenu:hover::after,
+  .ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-submenu:hover::after,
+  .ant-menu-light.ant-menu-horizontal > .ant-menu-item-active::after,
+  .ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-item-active::after,
+  .ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-active::after,
+  .ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-submenu-active::after,
+  .ant-menu-light.ant-menu-horizontal > .ant-menu-item-open::after,
+  .ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-item-open::after,
+  .ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-open::after,
+  .ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-submenu-open::after {
+    border-bottom-color: rgb(140, 24, 24) !important;
+    border-bottom-width: 2px !important;
+  }
+  .ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected::after,
+  .ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-item-selected::after,
+  .ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-selected::after,
+  .ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-submenu-selected::after {
+    border-bottom-color: rgb(140, 24, 24) !important;
+    border-bottom-width: 2px !important;
+  }
+  .nav-links-btn {
+    background-color: #8C1816;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
+  .nav-links-btn:hover{
+    color: white;
+    background-color: rgb(189, 8, 8);
+    text-decoration: none;
+    
+  }
+  .ant-menu-inline {
+    border-right: 1px solid red; /* Change the border color to red */
+  }

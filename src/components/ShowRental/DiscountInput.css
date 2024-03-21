@@ -1,0 +1,93 @@
+/* DiscountInput.css */
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 300px;
+  flex-direction: row;
+  margin-top: 5%;
+  margin-left: 45%;
+}
+
+
+.discount-title {
+  color: white;
+}
+
+.custom-input {
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  border: 1px solid transparent;
+  transition: border 0.3s ease;
+  margin-right: 5px;
+  /* Aralarına boşluk bırakmak için */
+}
+
+.custom-input:hover {
+  border: 1px solid transparent;
+}
+
+.custom-input:focus {
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.placeholder {
+  width: 65%;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+
+  background-color: #e8e8e8;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.custom-input::placeholder {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0);
+}
+
+.custom-input:focus+.placeholder {
+  opacity: 1;
+}
+
+.custom-input:focus {
+  border-color: transparent;
+  color: rgb(0, 0, 0);
+}
+
+.discountButton {
+  appearance: none;
+  background-color: #8c1816;
+  border: 1px solid #1a1a1a;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: normal;
+  margin: 0;
+  outline: none;
+  padding: 11px 13px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
