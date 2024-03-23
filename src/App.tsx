@@ -19,6 +19,7 @@ import MainLayout from "./components/MainLayout/MainLayout";
 import SelectedCar from "./pages/SelectedCar/SelectedCar";
 import { AllGetByDateCarResponse } from "./models/Responses/Car/AllGetByDateCarResponse";
 import Login from "./pages/Login/Login";
+import SignUp from "./pages/SignUp/SignUp";
 function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -40,7 +41,12 @@ function App() {
           Input: {
             colorPrimary: "#eb2f96",
             algorithm: [theme.darkAlgorithm, theme.compactAlgorithm], // Enable algorithm
-            colorBgBase: "pink",
+           
+              colorTextPlaceholder: "white",
+              colorBgContainer: "#121212",
+              activeBorderColor: "rgb(126, 4, 10)",
+              colorPrimaryHover: "rgb(255, 255, 255)",
+              colorText: "rgba(255, 255, 255, 0.93)",
           },
           DatePicker: {
             colorBgElevated: "rgb(81, 80, 80)",
@@ -86,6 +92,9 @@ function App() {
             colorTextDisabled: "rgb(255, 255, 255)",
             itemHoverColor:"rgb(126, 4, 10) "
 
+          },
+          Form: {
+            labelColor: "rgb(255, 255, 255)"
           }
         },
         
@@ -99,6 +108,7 @@ function App() {
             <Route path="/about" />
             <Route path="/contact" />
             <Route path="/login" Component={Login}/>
+            <Route path="/signup" Component={SignUp}/>
             <Route path="/selectedCar" element={<SelectedCar response={searchCarResponse} />} />
           </Routes>
         </MainLayout>

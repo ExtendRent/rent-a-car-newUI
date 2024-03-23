@@ -7,6 +7,8 @@ import { carModelReducer } from './slices/carModelSlice';
 import { colorReducer } from './slices/colorSlice';
 import { fuelTypeReducer } from './slices/fuelTypeSlice';
 import { shiftTypeReducer } from './slices/shiftTypeSlice';
+import { signInReducer } from './slices/signInSlice';
+import { drivingLicenseTypeReducer } from './slices/drivingLicenseTypeSlice';
 
 
 
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
     color:colorReducer,
     fuelType:fuelTypeReducer,
     shiftType : shiftTypeReducer,
+    signIn:signInReducer,
+    drivingLicenseType: drivingLicenseTypeReducer,
 });
 
 
