@@ -20,6 +20,7 @@ import SelectedCar from "./pages/SelectedCar/SelectedCar";
 import { AllGetByDateCarResponse } from "./models/Responses/Car/AllGetByDateCarResponse";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
+import AdminPanel from "./pages/AdminPanel/AdminPanel";
 function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -47,6 +48,7 @@ function App() {
               activeBorderColor: "rgb(126, 4, 10)",
               colorPrimaryHover: "rgb(255, 255, 255)",
               colorText: "rgba(255, 255, 255, 0.93)",
+              colorBorder: "#7a7a7a"
           },
           DatePicker: {
             colorBgElevated: "rgb(81, 80, 80)",
@@ -110,6 +112,7 @@ function App() {
             <Route path="/login" Component={Login}/>
             <Route path="/signup" Component={SignUp}/>
             <Route path="/selectedCar" element={<SelectedCar response={searchCarResponse} />} />
+            <Route path="/adminPanel" element={<AdminPanel/>}/>
           </Routes>
         </MainLayout>
       </BrowserRouter>

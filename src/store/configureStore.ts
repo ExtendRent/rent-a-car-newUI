@@ -9,6 +9,11 @@ import { fuelTypeReducer } from './slices/fuelTypeSlice';
 import { shiftTypeReducer } from './slices/shiftTypeSlice';
 import { signInReducer } from './slices/signInSlice';
 import { drivingLicenseTypeReducer } from './slices/drivingLicenseTypeSlice';
+import { rentalReducer } from './slices/rentalSlice';
+import { adminReducer } from './slices/adminSlice';
+import { employeeReducer } from './slices/employeeSlice';
+import { userReducer } from './slices/userSlice';
+import { customerReducer } from './slices/customerSlice';
 
 
 
@@ -22,6 +27,11 @@ const rootReducer = combineReducers({
     shiftType : shiftTypeReducer,
     signIn:signInReducer,
     drivingLicenseType: drivingLicenseTypeReducer,
+    rental: rentalReducer,
+    admin: adminReducer,
+    employee: employeeReducer,
+    user: userReducer,
+    customer:customerReducer,
 });
 
 

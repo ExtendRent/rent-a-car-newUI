@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Row, Col, Form, Input, Button, Typography, Alert, Select } from "antd";
 import {
   GoogleOutlined,
   FacebookOutlined,
   LinkedinOutlined,
 } from "@ant-design/icons";
-import imageSignup from "../../assets/images/leo2.jpg";
+import signup from "../../assets/videos/signup.mp4";
 import { useAppDispatch } from "../../store/useAppDispatch";
 import { addCustomer } from "../../store/slices/customerSlice";
 import { AddCustomerModel } from "../../models/Requests/Customer/AddCustomerModel";
@@ -20,8 +20,8 @@ const SignUp = () => {
   const drivingLicenseTypeState = useAppSelector(
     (state: any) => state.drivingLicenseType
   );
-  console.log(drivingLicenseTypeState);
-
+  
+   
   const [drivingLicenseTypeEntityId, setDrivingLicenseTypeEntityId] = useState<
     number | undefined
   >(undefined);
@@ -31,6 +31,7 @@ const SignUp = () => {
 
   useEffect(() => {
     dispatch(fetchDrivingLicenseTypes());
+    
   }, [dispatch]);
 
   const handleSubmit = async (values: AddCustomerModel) => {
@@ -65,17 +66,21 @@ const SignUp = () => {
       }}
     >
       <Col span={12}>
-        <img
-          src={imageSignup}
-          alt="Signup"
+        <video
+          autoPlay loop muted 
           style={{
+            maxWidth: "100%",
             width: "100%",
-            height: "100%",
+            height: "70%",
             objectFit: "cover",
             borderBottomLeftRadius: "50px",
             borderTopLeftRadius: "50px",
+            
           }}
-        />
+        >
+          <source src={signup} type="video/mp4" />
+       </video>
+       
       </Col>
       <Col
         span={12}

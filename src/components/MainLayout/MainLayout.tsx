@@ -36,7 +36,16 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           <Menu.Item style={{color:"white"}} key="about">About Us</Menu.Item>
           <Menu.Item  key="space1" style={{ margin: "0 10px" }}></Menu.Item>
           <Menu.Item style={{color:"white"}} key="contact">Contact</Menu.Item>
+          <Menu.Item  key="space1" style={{ margin: "0 10px" }}></Menu.Item>
+          <Menu.Item style={{color:"white"}} key="admin">
+            <li className='nav-item nav-item-right'>
+              <Link to='/adminPanel'>
+                Admin
+              </Link>
+            </li>
+          </Menu.Item>
           <Menu.Item  key="space1" style={{ margin: "0 20px" }}></Menu.Item>
+          
           <Menu.Item style={{color:"white"}} key="login">
             <li className='nav-item nav-item-right'>
               <Link to='/login' className='nav-links nav-links-btn'>
