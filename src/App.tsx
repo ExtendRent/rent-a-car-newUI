@@ -21,6 +21,8 @@ import { AllGetByDateCarResponse } from "./models/Responses/Car/AllGetByDateCarR
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import AdminPanel from "./pages/AdminPanel/AdminPanel";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
 function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -97,6 +99,10 @@ function App() {
           },
           Form: {
             labelColor: "rgb(255, 255, 255)"
+          },
+          Typography: {
+            colorTextHeading: "rgba(255, 255, 255, 0.88)",
+            colorText: "rgba(255, 255, 255, 0.88)"
           }
         },
         
@@ -107,12 +113,14 @@ function App() {
         <MainLayout>
           <Routes>
             <Route path="/" Component={Homepage} />
-            <Route path="/about" />
-            <Route path="/contact" />
+            <Route path="/about" Component={About}/>
+            <Route path="/contact" Component={Contact}/>
             <Route path="/login" Component={Login}/>
             <Route path="/signup" Component={SignUp}/>
             <Route path="/selectedCar" element={<SelectedCar response={searchCarResponse} />} />
             <Route path="/adminPanel" element={<AdminPanel/>}/>
+
+
           </Routes>
         </MainLayout>
       </BrowserRouter>
