@@ -14,6 +14,15 @@ import { adminReducer } from './slices/adminSlice';
 import { employeeReducer } from './slices/employeeSlice';
 import { userReducer } from './slices/userSlice';
 import { customerReducer } from './slices/customerSlice';
+import { showRentalReducer } from './slices/showRentalSlice';
+import { paymentTypeReducer } from './slices/paymentTypeSlice';
+import { carBodyTypeReducer } from './slices/carBodyTypeSlice';
+import { vehicleStatusReducer } from './slices/vehicleStatusSlice';
+import { carSegmentReducer } from './slices/carSegmentSlice';
+import { discountCodeReducer } from './slices/discountCodeSlice';
+import { rentalStatusReducer } from './slices/rentalStatusSlice';
+import { paymentDetailsReducer } from './slices/paymentDetailsSlice';
+import { imageReducer } from './slices/imageSlice';
 
 
 
@@ -32,6 +41,15 @@ const rootReducer = combineReducers({
     employee: employeeReducer,
     user: userReducer,
     customer:customerReducer,
+    showRental:showRentalReducer,
+    paymentType: paymentTypeReducer,
+    carBodyType:carBodyTypeReducer,
+    vehicleStatus: vehicleStatusReducer,
+    carSegment: carSegmentReducer,
+    discountCode: discountCodeReducer,
+    rentalStatus: rentalStatusReducer,
+    paymentDetails : paymentDetailsReducer,
+    imageLoad:imageReducer,
 });
 
 

@@ -274,7 +274,7 @@ const SideBar = ({ children }) => {
 
   return (
     <>
-      <div className="main-container flex">
+      <div className="main-container flex" style={{display:"flex"}}>
         <motion.div
           animate={{
             width: isOpen ? '200px' : '45px',
@@ -305,7 +305,7 @@ const SideBar = ({ children }) => {
             </AnimatePresence>
 
             <div className="bars">
-              <button onClick={toggle}>
+              <button onClick={toggle} style={{borderRadius:"8px"}}>
                 <FaBars />
               </button>
             </div>
@@ -366,7 +366,7 @@ const SideBar = ({ children }) => {
           </section>
         </motion.div>
 
-        <main className="w-full">{children}</main>
+        <main className="w-full" style={{width: "-webkit-fill-available"}}>{children}</main>
       </div>
     </>
   );

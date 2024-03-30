@@ -1,153 +1,161 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AddShowRentalResponse } from "../../models/Responses/Rental/AddShowRentalResponse";
-
-import { AppDispatch } from "../../store/configureStore";
-import { fetchPaymentTypes } from "../../store/slices/paymentTypeSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { Typography, Row, Col, Button } from "antd";
 import { Link } from "react-router-dom";
 import "./RentalDetail.css";
+
+const { Title, Text } = Typography;
+
 const RentalDetail: React.FC<{
   response: AddShowRentalResponse | undefined;
   onPaymentProcessClick: () => void;
   lastAmount: number | undefined;
 }> = ({ response, onPaymentProcessClick, lastAmount }) => {
   return (
-    <></>
-   /*  <div className="form-rental-detail">
-      <Box
-        sx={{
-          p: 3,
+    <div className="form-rental-detail">
+      <div
+        style={{
+          padding: "24px",
           borderRadius: "10px",
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+          boxShadow: "rgb(234 0 0) 0px 0px 10px",
+          minHeight: "450px"
+          
         }}
       >
-        <Typography
-          variant="h4"
-          gutterBottom
+        <Title
+          level={2}
           style={{ textAlign: "center", marginBottom: "20px", color: "black" }}
         >
           Sipariş Detayları
-        </Typography>
+        </Title>
         {response ? (
-          <Grid container spacing={3} justifyContent="center">
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="h6"
-                gutterBottom
-                style={{ color: "#009688" }}
-              >
-                Müşteri Bilgileri:
-              </Typography>
-              <Typography
-                variant="body1"
-                gutterBottom
-                style={{ color: "black" }}
-              >
-                <strong>Ad:</strong>{" "}
-                <span style={{ color: "black" }}>
-                  {response.response.customerDTO?.name}
-                </span>
-                <br />
-                <strong>Soyad:</strong>{" "}
-                <span style={{ color: "black" }}>
-                  {response.response.customerDTO?.surname}
-                </span>
-                <br />
-                <strong>Mail Adresi:</strong>{" "}
-                <span style={{ color: "black" }}>
-                  {response.response.customerDTO?.emailAddress}
-                </span>
-                <br />
-                <strong>Telefon Numarası:</strong>{" "}
-                <span style={{ color: "black" }}>
-                  {response.response.customerDTO?.phoneNumber}
-                </span>
-                <br />
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="h6"
-                gutterBottom
-                style={{ color: "#009688" }}
-              >
-                Araç Bilgileri:
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                <strong>Marka:</strong>{" "}
-                {response.response.carDTO?.carModelEntityBrandEntityName} <br />
-                <strong>Model:</strong>{" "}
-                {response.response.carDTO?.carModelEntityName} <br />
-                <strong>Tip:</strong>{" "}
-                {response.response.carDTO?.carBodyTypeEntityName} <br />
-                <strong>Renk:</strong>{" "}
-                {response.response.carDTO?.colorEntityName} <br />
-                <strong>Yakıt Tipi:</strong>{" "}
-                {response.response.carDTO?.fuelTypeEntityName} <br />
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="h6"
-                gutterBottom
-                style={{ color: "#009688" }}
-              >
-                Kiralama Tarihleri:
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                <strong>Başlangıç Tarihi:</strong>{" "}
-                {response.response.startDate?.toString()} <br />
-                <strong>Bitiş Tarihi:</strong>{" "}
-                {response.response.endDate?.toString()} <br />
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="h6"
-                gutterBottom
-                style={{ color: "#009688" }}
-              >
-                Toplam Tutar:
-              </Typography>
-              <Typography
-                variant="body1"
-                gutterBottom
-                style={{
-                  fontSize: "1.5rem",
-                  color: "#333",
-                  fontWeight: "bold",
-                }}
-              >
-                {lastAmount} TL
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sx={{ textAlign: "center" }}>
-              <Typography
-                variant="body1"
-                gutterBottom
-                style={{ marginTop: "20px", color: "#333" }}
-              >
-                Teşekkür ederiz. İyi yolculuklar!
-              </Typography>
-              <Link to="/">
-                <Button
-                  variant="contained"
-                  sx={{
-                    marginTop: "20px",
-                    color: "#fff",
-                    backgroundColor: "#009688",
-                  }}
-                >
-                  AnaSayfa'ya Dön
-                </Button>
-              </Link>
-            </Grid>
-          </Grid>
+          <Row gutter={[16, 16]} justify="center" style={{marginLeft:"126px"}}>
+            <Col xs={24} md={24}>
+              <Row gutter={[16, 16]}>
+                <Col xs={24} md={12}>
+                  <Title level={4} style={{ color: "#7e040a" }}>
+                    Müşteri Bilgileri:
+                  </Title>
+
+                  <div style={{ display: "flex" }}>
+                    {/* Container for <strong> elements */}
+                    <div style={{ marginRight: "10px" }}>
+                      <strong style={{ color: "black" }}>Ad:</strong>
+                      <br />
+                      <strong style={{ color: "black" }}>Soyad:</strong>
+                      <br />
+                      <strong style={{ color: "black" }}>Mail Adresi:</strong>
+                      <br />
+                      <strong style={{ color: "black" }}>
+                        Telefon Numarası:
+                      </strong>
+                      <br />
+                    </div>
+                    {/* Container for <span> elements */}
+                    <div>
+                      <span style={{ color: "black" }}>
+                        {response.response.customerResponse?.name}
+                      </span>
+                      <br />
+                      <span style={{ color: "black"}}>
+                        {response.response.customerResponse?.surname}
+                      </span>
+                      <br />
+                      <span style={{ color: "black" }}>
+                        {response.response.customerResponse?.emailAddress}
+                      </span>
+                      <br />
+                      <span style={{ color: "black" }}>
+                        {response.response.customerResponse?.phoneNumber}
+                      </span>
+                      <br />
+                    </div>
+                  </div>
+                </Col>
+                <Col xs={24} md={12}>
+                  <Title level={4} style={{ color: "#7e040a" }}>
+                    Araç Bilgileri:
+                  </Title>
+                  <div style={{ display: "flex" }}>
+                    {/* Container for <strong> elements */}
+                    <div style={{ marginRight: "10px" }}>
+                      <strong>Marka:</strong>
+                      <br />
+                      <strong>Model:</strong>
+                      <br />
+                      <strong>Tip:</strong>
+                      <br />
+
+                      <strong>Yakıt Tipi:</strong>
+                      <br />
+                    </div>
+                    {/* Container for <span> elements */}
+                    <div>
+                      <span style={{ color: "black" }}>
+                        {
+                          response.response.carResponse
+                            ?.carModelEntityBrandEntityName
+                        }
+                      </span>{" "}
+                      <br />
+                      <span style={{ color: "black" }}>
+                        {response.response.carResponse?.carModelEntityName}
+                      </span>{" "}
+                      <br />
+                      <span style={{ color: "black" }}>
+                        {response.response.carResponse?.carBodyTypeEntityName}
+                      </span>{" "}
+                      <br />
+                      <span style={{ color: "black" }}>
+                        {response.response.carResponse?.fuelTypeEntityName}
+                      </span>{" "}
+                      <br />
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={24} md={24}>
+              <Row gutter={[16, 16]}>
+                <Col xs={24} md={12}>
+                  <Title level={4} style={{ color: "#7e040a" }}>
+                    Kiralama Tarihleri:
+                  </Title>
+                  <div style={{ display: "flex" }}>
+                    <div style={{ marginRight: "10px" }}>
+                      <strong>Başlangıç Tarihi:</strong>
+                      <br />
+                      <strong>Bitiş Tarihi:</strong>
+                      <br />
+                    </div>
+                    <div>
+                      <span style={{ color: "black" }}>
+                        {response.response.startDate?.toString()}
+                      </span>{" "}
+                      <br />
+                      <span style={{ color: "black" }}>
+                        {response.response.endDate?.toString()}
+                      </span>{" "}
+                      <br />
+                    </div>
+                  </div>
+                </Col>
+                <Col xs={24} md={12}>
+                  <Title level={4} style={{ color: "#7e040a" }}>
+                    Toplam Tutar:
+                  </Title>
+                  <Text strong style={{ fontSize: "1.5rem", color: "black" }}>
+                    {lastAmount} TL
+                  </Text>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
         ) : (
-          <Typography variant="body1">Bilgiler yükleniyor...</Typography>
+          <Text>Bilgiler yükleniyor...</Text>
         )}
-      </Box>
-    </div> */
+      </div>
+    </div>
   );
 };
 

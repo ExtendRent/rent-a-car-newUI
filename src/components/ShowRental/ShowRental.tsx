@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import "./ShowRental.css";
 import "./DiscountInput.css";
 import ShowCarCard from "../ShowRentalCarCard/ShowCarCard";
+import Title from "antd/es/typography/Title";
 const ShowRental: React.FC<{
   response: AddShowRentalResponse | undefined;
   onPaymentProcessClick: () => void;
@@ -54,17 +55,17 @@ const ShowRental: React.FC<{
     return dayDifference;
   };
 
-  const { customerDTO, carDTO, startDate, endDate, discountCode, amount } =
+  const { customerResponse, carResponse, startDate, endDate, discountCode, amount } =
     response.response;
 
   const handleCalculateClick = async () => {
     const newAmountResponse = await dispatch(
       addShowRental({
         discountCode: discountCodeInput,
-        carEntityId: carDTO.id,
+        carEntityId: carResponse.id,
         startDate: startDate,
         endDate: endDate,
-        customerEntityId: customerDTO.id,
+        customerEntityId: customerResponse.id,
       })
     );
 
@@ -82,23 +83,20 @@ const ShowRental: React.FC<{
 
   return (
     <div className="show-rental-container mt-4">
-      <div className="text-white firstHeaderText">
-        <h3>Macera Detayları</h3>
-      </div>
+        <Title>Macera Detayları</Title>
+    
       <div className="line"></div>
 
       <div className="row">
-        {/* CarCard */}
-        <div className="col-md-6">
+        <div className="col-md-4">
           <div>
-            {response && response.response.carDTO && (
-              <ShowCarCard carDTO={response.response.carDTO} />
+            {response && response.response.carResponse && (
+              <ShowCarCard carDTO={response.response.carResponse} />
             )}
           </div>
         </div>
 
-        {/* Kiralama Detayları */}
-        <div className="col-md-6">
+        <div className="col-md-4">
           <div className="text-white">
             <h5 className="second-header">Müşteri Bilgileri:</h5>
             <div className="customer-info-container">
@@ -113,15 +111,15 @@ const ShowRental: React.FC<{
               </div>
               <div className="customer-values text-grey">
                 <div>
-                  <p>{customerDTO.name}</p>
-                  <p>{customerDTO.surname}</p>
-                  <p>{customerDTO.emailAddress}</p>
-                  <p>{customerDTO.phoneNumber}</p>
-                  <p>{customerDTO.drivingLicenseTypeEntityName}</p>
+                  <p>{customerResponse.name}</p>
+                  <p>{customerResponse.surname}</p>
+                  <p>{customerResponse.emailAddress}</p>
+                  <p>{customerResponse.phoneNumber}</p>
+                  <p>{customerResponse.drivingLicenseTypeEntityName}</p>
                 </div>
               </div>
             </div>
-
+            
             <h5 className="second-header">Araç Bilgileri:</h5>
             <div className="car-info-container">
               <div className="label-value-pair text-grey">
@@ -132,22 +130,22 @@ const ShowRental: React.FC<{
               </div>
               <div className="car-info-values">
                 <div>
-                  <p>{carDTO.carModelEntityBrandEntityName}</p>
-                  <p>{carDTO.carModelEntityName}</p>
-                  <p>{carDTO.colorEntityName}</p>
-                  <p>{carDTO.year}</p>
+                  <p>{carResponse.carModelEntityBrandEntityName}</p>
+                  <p>{carResponse.carModelEntityName}</p>
+                  <p>{carResponse.colorEntityName}</p>
+                  <p>{carResponse.year}</p>
                 </div>
               </div>
             </div>
 
-            <h4 className="second-header-center">Macera Tarihleri</h4>
+            
+          </div>
+          <h4 className="second-header-center" >Macera Tarihleri</h4>
             <div className="rental-dates-container">
               <div className="rental-date-values">
                 {formatDate(startDate)} - {formatDate(endDate)}
               </div>
             </div>
-          </div>
-
           {/* İndirim Kodu ve Hesapla Butonu */}
           <div className="mb-3 asd">
             {/* Fiyat*/}
@@ -182,7 +180,7 @@ const ShowRental: React.FC<{
                 }
                 className="custom-input"
                 placeholder="indirim kodu"
-                style={{ width: "210px", height: "50px" }}
+                style={{ width: "210px", height: "50px",color:"black" }}
               ></input>
               <button onClick={handleCalculateClick} className="discountButton">Uygula</button>
             </div>

@@ -55,12 +55,14 @@
     border-right: 4px solid rgb(150, 16, 16);
     background: rgb(150, 16, 16);
     transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    color: rgb(255, 255, 255);
   }
   
   .link_text {
     white-space: nowrap;
     font-size: 15px;
   }
+  
   
   .menu {
     display: flex;

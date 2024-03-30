@@ -29,7 +29,6 @@
   display: flex;
   justify-content: space-between;
   max-width: 300px;
-  margin: auto;
   margin-bottom: 15px;
 }
 
@@ -40,16 +39,19 @@
 }
 .rental-date-values{
   text-align: center;
-  font-size: 160%;
+  color: white;
 }
 
 .second-header {
   margin-left: 50px;
+  margin-right: 40px;
+  margin-top: -1px;
 }
 
 .second-header-center {
   margin-top: 20px;
   text-align: center;
+  color: white;
 }
 
 .customer-values p,
@@ -61,6 +63,7 @@
 .label-value-pair p{
   margin-bottom: 3px;
   text-transform: bold;
+  font-size: medium;
 }
 
 .label-value-pair {
@@ -71,6 +74,7 @@
 .customer-values {
   text-align: left;
   flex-direction: column;
+  font-size: medium;
 }
 
 
@@ -78,13 +82,13 @@
   display: flex;
   justify-content: space-between;
   max-width: 300px;
-  margin: auto; /* Container'ı yatayda ortalamak için */
   margin-bottom: 50px;
 }
 .car-info-values{
   text-align: left;
   flex-direction: column;
   margin-right: 38%;
+  font-size: medium;
 }
 
 body {
@@ -148,6 +152,8 @@ body {
 
 .text-white {
   color: white;
+  display: flex;
+  margin-top: 20px;
 }
 
 .text-grey{

@@ -14,7 +14,6 @@ import {
   BrowserRouter,
   Routes,
 } from "react-router-dom";
-import Homepage from "./pages/Homepage/Homepage";
 import MainLayout from "./components/MainLayout/MainLayout";
 import SelectedCar from "./pages/SelectedCar/SelectedCar";
 import { AllGetByDateCarResponse } from "./models/Responses/Car/AllGetByDateCarResponse";
@@ -23,6 +22,24 @@ import SignUp from "./pages/SignUp/SignUp";
 import AdminPanel from "./pages/AdminPanel/AdminPanel";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
+import CarTable from "./pages/Cars/CarTable";
+import CarModelTable from "./pages/CarModel/CarModelTable";
+import ColorTable from "./pages/Color/ColorTable";
+import DiscountCodeTable from "./pages/DiscountCode/DiscountCodeTable";
+import CarBodyTypeTable from "./pages/CarBodyType/CarBodyTypeTable";
+import CarSegmentTable from "./pages/CarSegment/CarSegmentTable";
+import FuelTypeTable from "./pages/FuelType/FuelTypeTable";
+import VehicleStatusTable from "./pages/VehicleStatus/VehicleStatusTable";
+import DrivingLicenseTypeTable from "./pages/DrivingLicenseType/DrivingLicenseTypeTable";
+import BrandTable from "./pages/Brands/BrandTable";
+import Homepage from "./pages/Homepage/Homepage";
+import ShiftTypeTable from "./pages/ShiftType/ShiftTypeTable";
+import EmployeeTable from "./pages/Employee/EmployeeTable";
+import RentalTable from "./pages/Rental/RentalTable";
+import UserTable from "./pages/User/UserTable";
+import AdminTable from "./pages/Admin/AdminTable";
+import PaymentTypeTable from "./pages/PaymentType/PaymentTypeTable";
+import PaymentDetailsTable from "./pages/PaymentDetails/PaymentDetailsTable";
 function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -119,8 +136,23 @@ function App() {
             <Route path="/signup" Component={SignUp}/>
             <Route path="/selectedCar" element={<SelectedCar response={searchCarResponse} />} />
             <Route path="/adminPanel" element={<AdminPanel/>}/>
-
-
+            <Route path="/adminPanel/cars" element={<CarTable/>}/>
+            <Route path="/adminPanel/carModels" element={<CarModelTable />}></Route>
+            <Route path="/adminPanel/colors" element={<ColorTable />}></Route>
+            <Route path="/adminPanel/discountCodes" element={<DiscountCodeTable />}></Route>
+            <Route path="/adminPanel/carBodyTypes" element={<CarBodyTypeTable />}></Route>
+            <Route path="/adminPanel/carSegments" element={<CarSegmentTable />}></Route>
+            <Route path="/adminPanel/fuelTypes" element={<FuelTypeTable />}></Route>
+            <Route path="/adminPanel/vehicleStatuses" element={<VehicleStatusTable />}></Route>
+            <Route path="/adminPanel/drivingLicenseTypes" element={<DrivingLicenseTypeTable />}></Route>
+            <Route path="/adminPanel/brands" element={<BrandTable />}></Route>
+            <Route path="/adminPanel/shiftTypes" element={<ShiftTypeTable />}></Route>
+            <Route path="/adminPanel/employees" element={<EmployeeTable />}></Route>
+            <Route path="/adminPanel/rentals" element={<RentalTable />}></Route>
+            <Route path="/adminPanel/users" element={<UserTable />}></Route>
+            <Route path="/adminPanel/admins" element={<AdminTable />}></Route>
+            <Route path="/adminPanel/paymentTypes" element={<PaymentTypeTable />}></Route>
+            <Route path="/adminPanel/paymentDetails" element={<PaymentDetailsTable />}></Route>
           </Routes>
         </MainLayout>
       </BrowserRouter>

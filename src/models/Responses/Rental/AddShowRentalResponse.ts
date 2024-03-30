@@ -1,6 +1,6 @@
 export interface AddShowRentalResponse {
   response: {
-    customerDTO: {
+    customerResponse: {
       id: number;
       phoneNumber: string;
       drivingLicenseNumber: string;
@@ -10,7 +10,7 @@ export interface AddShowRentalResponse {
       emailAddress: string;
       authorities: string[];
     };
-    carDTO: {
+    carResponse: {
       id: number;
       isLicenseTypeSuitable: boolean;
       carModelEntityBrandEntityName: string;

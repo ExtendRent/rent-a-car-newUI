@@ -216,7 +216,7 @@ const AdminCards = (props: Props) => {
           <p>Silinenler: {adminCountIsDeletedTrue}</p>
         </Card>
         <Card
-          title={<span style={{ fontSize: "18px", fontWeight: "bold" }}><CarOutlined /> Kiralama</span>}
+          title={<span style={{ fontSize: "18px", fontWeight: "bold" }}><CarOutlined /> Araç</span>}
           style={{
             width: 300,
             height: "250px",

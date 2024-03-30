@@ -5,11 +5,12 @@ import './ShowCarCard.css';
 const ShowCarCard: React.FC<{ carDTO: any }> = ({ carDTO }) => {
   return (
     <div className="container-carCard">
-      <div>
+      <div style={{ display: "flex" ,    width: "100%"}}>
         <div
           style={{
           
             marginTop: 12,
+            width: "50%"
           }}
           key={carDTO.id}
         >
@@ -32,7 +33,7 @@ const ShowCarCard: React.FC<{ carDTO: any }> = ({ carDTO }) => {
             alt=""
             style={{
               maxWidth: "100%",
-              height: "-webkit-fill-available",
+              height: "200px",
               marginBottom: 1.6,
               transition: "transform 0.3s ease",
             }}
@@ -51,14 +52,14 @@ const ShowCarCard: React.FC<{ carDTO: any }> = ({ carDTO }) => {
           </div>
         </div>
 
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex" ,margin: "112px auto auto",width: "50%"}}>
           <div
             style={{
-              borderRightStyle: "solid",
+              
               borderWidth: 1.5,
               borderColor: "#E1DED9",
-              paddingLeft: 2,
-              width: "50%",
+              paddingLeft: "171px",
+              width: "100%",
               color: "#A8A8A8",
             }}
           >
@@ -101,43 +102,7 @@ const ShowCarCard: React.FC<{ carDTO: any }> = ({ carDTO }) => {
             </div>
           </div>
 
-          <div style={{ paddingLeft: 3, width: "50%", color:"#A8A8A8"}}>
-            <div style={{ marginBottom: 1.6, }}>
-              <span style={{ fontSize: "1.25rem", fontWeight: "bold", color:"#FFFFFF"}}>
-                Kiralama Koşulları
-              </span>
-            </div>
-            <div className="mid-column">
-              <Icon
-                path={mdiCalendarAccountOutline}
-                size={1}
-                className="iconClass"
-              />
-              <span>21 Yaş Ve Üstü</span>
-            </div>
-            <div className="mid-column">
-              <Icon
-                path={mdiCarChildSeat}
-                size={1}
-                className="iconClass"
-              />
-              <span>Ehliyet Yılı 1 ve Üzeri</span>
-            </div>
-            <div className="mid-column">
-              <Icon
-                path={mdiCreditCardMultipleOutline}
-                size={1}
-                className="iconClass"
-              />
-              <span>1 Kredi Kartı</span>
-            </div>
-            <div>
-              Minimum Ehliyet:{" "}
-              <span className="bold-text">
-                {carDTO.expectedMinDrivingLicenseTypeName}
-              </span>
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>

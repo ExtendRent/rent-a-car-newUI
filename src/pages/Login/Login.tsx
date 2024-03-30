@@ -20,6 +20,7 @@ import { useState } from "react";
 import { useAppSelector } from "../../store/useAppSelector";
 import { RootState } from "../../store/configureStore";
 import { Link } from "react-router-dom";
+
 const Login = () => {
   const dispatch = useAppDispatch();
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -31,6 +32,9 @@ const Login = () => {
       await dispatch(
         addSignIn({ email: values.email, password: values.password })
       );
+      setSuccessMessage("İşlem başarılı. Hoşgeldiniz !");
+      // Anasayfaya yönlendirme
+      window.location.href = "/";
     } catch (error) {
       console.error("Giriş işlemi başarısız oldu: ", error);
       setErrorMessage(
@@ -121,20 +125,22 @@ const Login = () => {
         <Typography.Title level={2} style={{ color: "white" }}>
           Merhaba !
         </Typography.Title>
-        <Typography.Text style={{ color: "white", fontSize: "medium" }}>
-          Hesabınız yoksa, sadece kişisel bilgilerinizi girin ve bizimle bir
-          yolculuğa başlayın.
+        <Typography.Text
+          style={{ color: "white", fontSize: "medium", width: "100%" }}
+        >
+          Hesabınız yoksa, kişisel bilgilerinizi girin ve bizimle bir yolculuğa
+          başlayın.
         </Typography.Text>
         <Button type="primary" style={{ marginTop: "20px" }}>
-          <Link to="/signup">
-            Yeni Hesap Oluştur
-          </Link>
+          <Link to="/signup">Yeni Hesap Oluştur</Link>
         </Button>
       </Col>
-      {errorCustom && <Alert type="error" message={errorCustom} />}
+      <div style={{ width: "236px",marginTop:"20px",marginLeft:"36px"}}>
+      {errorCustom && <Alert type="error" message={errorCustom} showIcon/>}
       {!errorCustom && successMessage && (
-        <Alert type="success" message={successMessage} />
+        <Alert type="success" message={successMessage} showIcon/>
       )}
+      </div>
     </Row>
   );
 };

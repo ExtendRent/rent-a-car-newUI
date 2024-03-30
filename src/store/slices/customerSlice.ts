@@ -82,9 +82,14 @@ export const addCustomer = createAsyncThunk(
     try {
       const addedCustomer = await customerService.add(addCustomerData);
       return addedCustomer.data;
-    } catch (error) {
-      console.error("Error adding customer:", error);
-      throw new Error("İşlem sırasında bir hata oluştu");
+    } catch (error: any) {
+       
+      if (error && error.response && (error.response.data.response.errorCode === 3000||error.response.data.response.errorCode ===2014|| error.response.data.response.errorCode ===2016 || error.response.data.response.errorCode ===2015 ||error.response.data.response.errorCode ===2021 ||error.response.data.response.errorCode ===2002 )) {
+        
+        throw error.response.data.response.details[0];
+        
+      }
+      
     }
   }
 );
@@ -126,7 +131,7 @@ export const deleteCustomer = createAsyncThunk(
 
 const customerSlice = createSlice({
   name: "customer",
-  initialState: { customers: [] as any[], error: null ,customerStatus:0,customerCountIsDeleted: 0 },
+  initialState: { customers: [] as any[], error: null as string | null ,customerStatus:0,customerCountIsDeleted: 0 },
   reducers: {},
   extraReducers: (builder) => {
 
@@ -134,73 +139,92 @@ const customerSlice = createSlice({
 
     builder.addCase(addCustomer.pending, (state) => { });
     builder.addCase(addCustomer.fulfilled, (state, action) => {
+      state.error=null;
       state.customers.push(action.payload);
     });
-    builder.addCase(addCustomer.rejected, (state) => { });
+    builder.addCase(addCustomer.rejected, (state,action) => { 
+      state.error = action.error.message || "Bir hata oluştu.";
+    });
 
 
     /*---------------*/
 
     builder.addCase(getByIdCustomer.pending, (state) => { });
     builder.addCase(getByIdCustomer.fulfilled, (state, action) => {
+      state.error=null;
       state.customers = [action.payload];
-      console.log(action.payload);
       
     });
-    builder.addCase(getByIdCustomer.rejected, (state) => {
+    builder.addCase(getByIdCustomer.rejected, (state,action) => {
+      state.error = action.error.message || "Bir hata oluştu.";
     });
 
     /*---------------*/
 
     builder.addCase(getCustomerCountByStatus.pending, (state) => { });
     builder.addCase(getCustomerCountByStatus.fulfilled, (state, action) => {
+      state.error=null;
         state.customerStatus = action.payload.response;
     });
-    builder.addCase(getCustomerCountByStatus.rejected, (state) => {
+    builder.addCase(getCustomerCountByStatus.rejected, (state,action) => {
+      state.error = action.error.message || "Bir hata oluştu.";
     });
 
      /*---------------*/
 
      builder.addCase(getCustomerCountIsDeleted.pending, (state) => { });
      builder.addCase(getCustomerCountIsDeleted.fulfilled, (state, action) => {
+        state.error=null;
          state.customerCountIsDeleted = action.payload.response;
      });
-     builder.addCase(getCustomerCountIsDeleted.rejected, (state) => {
+     builder.addCase(getCustomerCountIsDeleted.rejected, (state,action) => {
+      state.error = action.error.message || "Bir hata oluştu.";
      });
 
       /*---------------*/
 
     builder.addCase(fetchCustomers.pending, (state) => { });
     builder.addCase(fetchCustomers.fulfilled, (state, action) => {
+      state.error=null;
       state.customers = action.payload;
     });
-    builder.addCase(fetchCustomers.rejected, (state) => { });
+    builder.addCase(fetchCustomers.rejected, (state,action) => {
+      state.error = action.error.message || "Bir hata oluştu.";
+     });
 
     /*-----------------*/
 
     builder.addCase(getRentalsByCustomer.pending, (state) => { });
     builder.addCase(getRentalsByCustomer.fulfilled, (state, action) => {
+      state.error=null;
       state.customers = action.payload;
     });
-    builder.addCase(getRentalsByCustomer.rejected, (state) => {
+    builder.addCase(getRentalsByCustomer.rejected, (state,action) => {
+      state.error = action.error.message || "Bir hata oluştu.";
     });
 
     /*-----------------*/
 
     builder.addCase(updateCustomer.pending, (state) => { });
     builder.addCase(updateCustomer.fulfilled, (state, action) => {
+      state.error=null;
       state.customers = [];
     });
-    builder.addCase(updateCustomer.rejected, (state) => { });
+    builder.addCase(updateCustomer.rejected, (state,action) => {
+      state.error = action.error.message || "Bir hata oluştu.";
+     });
 
     /*---------------*/
 
     builder.addCase(deleteCustomer.pending, (state) => { });
     builder.addCase(deleteCustomer.fulfilled, (state, action) => {
+      state.error=null;
       const deletedCustomerId = action.payload.deletedCustomerId;
       state.customers = state.customers.filter(customer => customer.id !== deletedCustomerId);
     });
-    builder.addCase(deleteCustomer.rejected, (state) => { });
+    builder.addCase(deleteCustomer.rejected, (state,action) => {
+      state.error = action.error.message || "Bir hata oluştu.";
+     });
 
   },
 });

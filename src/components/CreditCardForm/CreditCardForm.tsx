@@ -4,6 +4,8 @@ import { Focused } from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
 
 import "./CreditCardForm.css";
+import { Col, Form, Input, Row, Select } from "antd";
+import { Option } from "antd/es/mentions";
 
 interface CreditCardChangeHandler {
   (creditCardInfo: any): void;
@@ -91,8 +93,8 @@ const CreditCardForm = ({
     setState((prev) => ({ ...prev, focus: e.target.name }));
   };
 
-  const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedMonth = e.target.value;
+  const handleMonthChange = (value: string) => {
+    const selectedMonth = value;
     setExpirationMonth(selectedMonth);
     const formattedExpirationDate = `${expirationYear}-${selectedMonth}-01`;
     setState((prevState) => ({
@@ -102,8 +104,8 @@ const CreditCardForm = ({
     onCreditCardChange({ ...state, expirationDate: formattedExpirationDate });
   };
 
-  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedYear = e.target.value;
+  const handleYearChange = (value: string) => {
+    const selectedYear = value;
     setExpirationYear(selectedYear);
     const formattedExpirationDate = `${selectedYear}-${expirationMonth}-01`;
     setState((prevState) => ({
@@ -114,7 +116,7 @@ const CreditCardForm = ({
   };
 
   return (
-    <div>
+    <Form onFinish={() => {}}>
       <Cards
         name={`${state.cardOwnerName} ${state.cardOwnerSurname}`}
         number={state.cardNumber}
@@ -123,107 +125,129 @@ const CreditCardForm = ({
         focused={state.focus as Focused}
       />
       <div className="mt-3">
-        <form>
-          <div className="row">
-            <div className="col-12 mb-3" style={{display: "contents"}}>
-            <div className="col-6 mb-3">
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    name="cardNumber"
-                    className="card-control"
-                    placeholder="Kart Numarası"
-                    value={state.cardNumber}
-                    onChange={handleInputChange}
-                    onFocus={handleInputFocus}
-                    required
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    name="cardOwnerName"
-                    className="card-control"
-                    placeholder="Adınız"
-                    onChange={handleInputChange}
-                    onFocus={handleInputFocus}
-                    required
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    name="cardOwnerSurname"
-                    className="card-control"
-                    placeholder="Soyadız"
-                    onChange={handleInputChange}
-                    onFocus={handleInputFocus}
-                    required
-                  />
-                </div>
-            </div>
-              <div className="col-6 mb-3">
-                <div className="col-6 mb-3">
-                  <select
-                    name="expirationMonth"
-                    className="card-control"
-                    value={expirationMonth}
-                    onChange={handleMonthChange}
-                    onFocus={handleInputFocus}
-                    required
+       
+          <Row gutter={[16, 16]} justify="space-evenly" style={{marginBottom:"30px"}}>
+            <Col xs={24} md={12}>
+              <Form.Item
+              rules={[
+                { required: true, message: 'Kart numarası boş bırakılamaz!' },
+                // Diğer doğrulama kuralları buraya eklenebilir
+              ]}>
+              <Input
+                type="text"
+                placeholder="Kart Numarası"
+                name="cardNumber"
+                value={state.cardNumber}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+                required
+                style={{ marginTop: "15px" }}
+                
+              />
+              </Form.Item>
+              <Form.Item>
+              <Input
+                type="text"
+                placeholder="Adınız"
+                name="cardOwnerName"
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+                required
+                style={{ marginTop: "15px" }}
+              />
+              </Form.Item>
+              <Form.Item>
+              <Input
+                type="text"
+                placeholder="Soyadınız"
+                name="cardOwnerSurname"
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+                required
+                style={{ marginTop: "15px" }}
+              />
+              </Form.Item>
+            </Col>
+            <Col xs={24} md={12}>
+              <Row gutter={[16, 16]}>
+                <Col xs={12} md={26}>
+                <Form.Item
+                    name="select"
+                    rules={[{ required: true, message: 'Please select your option!' }]}
                   >
-                    <option value="">Ay</option>
+                  <Select
+                    value={
+                      expirationMonth !== null ? expirationMonth.toString() : ""
+                    }
+                    onChange={(value) => handleMonthChange(value)}
+                    onFocus={handleInputFocus}
+                    placeholder="Ay"
+                    style={{ marginTop: "15px", width: "100%" }}
+                    
+                  >
+                    <Option value="">Ay</Option>
                     {monthOptions.map((option) => (
-                      <option key={option.value} value={option.value}>
+                      <Option
+                        key={option.value}
+                        value={option.value.toString()}
+                      >
                         {option.label}
-                      </option>
+                      </Option>
                     ))}
-                  </select>
-                </div>
-                <div className="col-6 mb-3">
-                  <select
-                    name="expirationYear"
-                    className="card-control"
-                    value={expirationYear}
-                    onChange={handleYearChange}
-                    onFocus={handleInputFocus}
-                    required
+                  </Select>
+                  </Form.Item>
+                </Col>
+                <Col xs={12} md={12}>
+                <Form.Item
+                    name="select"
+                    rules={[{ required: true, message: 'Please select your option!' }]}
                   >
-                    <option value="">Yıl</option>
-                    {yearOptions.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="col-6 mb-3">
-                  <input
-                    type="text"
-                    name="cvc"
-                    className="card-control"
-                    placeholder="CVC"
-                    maxLength={3} // Maksimum uzunluk 3 olacak
-                    onKeyPress={(e) => {
-                      // Sadece rakamları kabul et
-                      const onlyDigits = /[0-9]/;
-                      const key = String.fromCharCode(e.which);
-                      if (!onlyDigits.test(key)) {
-                        e.preventDefault();
-                      }
-                    }}
-                    value={state.cvc}
-                    onChange={handleInputChange}
+                  <Select
+                    value={
+                      expirationYear !== null ? expirationYear.toString() : ""
+                    }
+                    onChange={(value) => handleYearChange(value)}
                     onFocus={handleInputFocus}
-                    required
-                  />
-                </div>
-                </div>
-            </div>
-          </div>
-        </form>
+                    placeholder="Yıl"
+                    style={{ marginTop: "15px" , width: "100%"}}
+                  >
+                    <Option value="">Yıl</Option>
+                    {yearOptions.map((option) => (
+                      <Option
+                        key={option.value}
+                        value={option.value.toString()}
+                      >
+                        {option.label}
+                      </Option>
+                    ))}
+                  </Select>
+                  </Form.Item>
+                </Col>
+              </Row>
+              <Form.Item>
+              <Input
+                type="text"
+                placeholder="CVC"
+                name="cvc"
+                maxLength={3}
+                onKeyPress={(e) => {
+                  const onlyDigits = /[0-9]/;
+                  const key = String.fromCharCode(e.which);
+                  if (!onlyDigits.test(key)) {
+                    e.preventDefault();
+                  }
+                }}
+                value={state.cvc}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+                required
+                style={{ marginTop: "15px" }}
+              />
+              </Form.Item>
+            </Col>
+          </Row>
       </div>
-    </div>
+    </Form>
   );
 };
 

@@ -187,7 +187,7 @@ export default function CarCard({
               format="DD-MM-YYYY"
               placeholder="Başlama Tarihi"
               style={{
-                width: "430px",
+                width: "100%",
                 height: "40px",
                 marginBottom: "20px",
               }}
@@ -206,7 +206,7 @@ export default function CarCard({
               format="DD-MM-YYYY"
               placeholder="Başlama Tarihi"
               style={{
-                width: "430px",
+                width: "100%",
                 height: "40px",
                 marginBottom: "20px",
               }}
@@ -225,7 +225,7 @@ export default function CarCard({
               value={selectedBrand !== null ? selectedBrand.toString() : ""}
               onChange={(value: string) => changeBrand(parseInt(value))}
               style={{
-                width: "430px",
+                width: "100%",
                 height: "40px",
                 marginBottom: "20px",
               }}
@@ -251,7 +251,7 @@ export default function CarCard({
                 }
                 onChange={(value: string) => changeModel(parseInt(value))}
                 style={{
-                  width: "430px",
+                   width: "100%",
                   height: "40px",
                   marginBottom: "20px",
                 }}
@@ -274,7 +274,7 @@ export default function CarCard({
               value={selectedColor !== null ? selectedColor.toString() : ""}
               onChange={(value: string) => changeColor(parseInt(value))}
               style={{
-                width: "430px",
+                 width: "100%",
                 height: "40px",
                 marginBottom: "20px",
               }}
@@ -299,7 +299,7 @@ export default function CarCard({
               }
               onChange={(value: string) => changeFuelType(parseInt(value))}
               style={{
-                width: "430px",
+                 width: "100%",
                 height: "40px",
                 marginBottom: "20px",
               }}
@@ -324,7 +324,7 @@ export default function CarCard({
               }
               onChange={(value: string) => changeShiftType(parseInt(value))}
               style={{
-                width: "430px",
+                 width: "100%",
                 height: "40px",
                 marginBottom: "20px",
               }}
@@ -372,13 +372,13 @@ export default function CarCard({
       )}
       {successMessage && <Alert type="success" message={successMessage} />}
 
-      <Col md={18} style={{ display: "flex" }}>
+      <Col md={18} style={{ display: "flex",flexWrap: "wrap",alignItems: "center" }}>
         {carsState.map((car: any) => (
           <Col span={8}>
             <Card
               key={car.id}
               hoverable
-              style={{ marginTop: 2, minHeight: "100%" }}
+              style={{ marginTop: 10, minHeight: "100%" }}
               cover={
                 <div>
                   <div className="car-info">
@@ -395,10 +395,10 @@ export default function CarCard({
                   </div>
 
                   <img
-                    alt="example"
+                    alt="car"
                     src={car.imageEntityImageUrl}
                     style={{
-                      maxHeight: "100%",
+                      height: "228px",
                       objectFit: "cover",
                       paddingTop: "15%",
                       width: "100%",

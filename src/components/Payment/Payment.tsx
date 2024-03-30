@@ -6,6 +6,8 @@ import { AppDispatch } from "../../store/configureStore";
 import { addRental } from "../../store/slices/showRentalSlice";
 import { fetchPaymentTypes } from "../../store/slices/paymentTypeSlice";
 import './Payment.css';
+import { Button, Form, Select } from "antd";
+import Title from "antd/es/typography/Title";
 interface CreditCardInfo {
   cardNumber: string;
   cardOwnerName: string;
@@ -63,8 +65,8 @@ const Payment: React.FC<{
       typeof endDate === "string"
         ? endDate
         : endDate.toISOString().split("T")[0];
-    const customerEntityId = response?.response.customerDTO.id;
-    const carEntityId = response?.response.carDTO.id;
+    const customerEntityId = response?.response.customerResponse.id;
+    const carEntityId = response?.response.carResponse.id;
 
     if (customerEntityId !== undefined && carEntityId !== undefined) {
       const addRentalRequest = await dispatch(
@@ -94,52 +96,65 @@ const Payment: React.FC<{
     onPaymentProcessClick();
     setLastAmount(lastAmount);
   };
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const paymentTypeId = parseInt(e.target.value, 10);
+  const handleSelectChange = (value:number) => {
+    const paymentTypeId = value;
     setSelectedPaymentType(paymentTypeId);
   };
+  
 
   return (
     <div className="form">
       <div className="credit-cart-form">
+      <Form onFinish={handleSubmit}>
         <div className="py-4">
-          <h2>Fiyat: {lastAmount}</h2>
+          <Title>Fiyat: {lastAmount}</Title>
         </div>
         <label htmlFor="paymentTypeSelect" className="form-label">
           Ödeme Yöntemi
         </label>
-        <select
-          className="credit-input"
-          value={selectedPaymentType || ""}
-          onChange={handleSelectChange}
+        <Select
+        
+          value={selectedPaymentType !== null ? selectedPaymentType.toString() : ""}
+          onChange={(value: string) => handleSelectChange(parseInt(value))}
+          style={{
+            width: "100%",
+           height: "40px",
+           marginBottom: "20px",
+         }}
         >
           <option value="" disabled>
             Seçiniz
           </option>
           {paymentTypeState.paymentTypes.map((paymentType: any) => (
-            <option key={paymentType.id} value={paymentType.id}>
+            <option key={paymentType.id} value={paymentType.id.toString()}>
               {paymentType.name}
             </option>
           ))}
-        </select>
+        </Select>
+
+        
         {selectedPaymentType === 1 && (
           <CreditCardForm onCreditCardChange={handleCreditCardChange} />
         )}
 
-        <div className="d-grid" style={{ justifyItems: "end" }}>
-          <button
-            className="btn btn-dark"
+        <div className="d-grid" style={{ justifyItems: "end" }} >
+        <Form.Item>
+          <Button
+             type="primary"
             onClick={handleConfirmButtonClick}
             disabled={selectedPaymentType !== 1}
+            style={{float:"right",width:"20%"}}
           >
             Ödeme
-          </button>
+          </Button>
+          </Form.Item>
         </div>
         {selectedPaymentType !== 1 ? (
-          <p className="text-danger">
+          <p className="text-danger" style={{color:"red"}}>
             Sadece kredi kartı ile ödeme yapılabilir.
           </p>
         ) : null}
+        </Form>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react'
 import AdminRoutes from '../AdminRoutes/AdminRoutes'
+import SideBar from '../../components/Sidebar/SideBar'
 
 type Props = {}
 
