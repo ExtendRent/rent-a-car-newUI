@@ -20,7 +20,8 @@ import { addCarImages } from "../../store/slices/imageSlice";
 import { useAppSelector } from "../../store/useAppSelector";
 import { useAppDispatch } from "../../store/useAppDispatch";
 
-import { Alert, Button } from "antd";
+import { Alert, Button, Col, Row } from "antd";
+import Title from "antd/es/typography/Title";
 type Props = {};
 
 const AddCar = (props: Props) => {
@@ -32,7 +33,9 @@ const AddCar = (props: Props) => {
   const carModelState = useAppSelector((state: any) => state.carModel);
   const carBodyTypeState = useAppSelector((state: any) => state.carBodyType);
   const colorState = useAppSelector((state: any) => state.color);
-  const vehicleStatusState = useAppSelector((state: any) => state.vehicleStatus);
+  const vehicleStatusState = useAppSelector(
+    (state: any) => state.vehicleStatus
+  );
   const shiftTypeState = useAppSelector((state: any) => state.shiftType);
   const fuelTypeState = useAppSelector((state: any) => state.fuelType);
   const expectedMinDrivingLicenseTypeState = useAppSelector(
@@ -110,7 +113,7 @@ const AddCar = (props: Props) => {
     carBodyTypeEntityId: "",
     colorEntityId: "",
     vehicleStatusEntityId: "",
-    shiftTypeEntityId:"",
+    shiftTypeEntityId: "",
     fuelTypeEntityId: "",
     expectedMinDrivingLicenseTypeId: "",
     vehicleType: "CAR",
@@ -122,14 +125,14 @@ const AddCar = (props: Props) => {
       setImageError("Lütfen bir resim seçiniz");
       return;
     }
-    
+
     const formData = new FormData();
     try {
       formData.append("image", file);
       const thunkParams = {
         image: formData,
-        licensePlate: values.licensePlate 
-    };
+        licensePlate: values.licensePlate,
+      };
       const imageResponse = await dispatch(addCarImages(thunkParams));
       if (imageResponse) {
         const carImageEntityId = imageResponse.payload;
@@ -142,8 +145,8 @@ const AddCar = (props: Props) => {
       // Hata durumunda
       setErrorMessage("İşlem sırasında bir hata oluştu");
     }
-    window.location.href = "/adminPanel/cars";
-  }
+    /* window.location.href = "/adminPanel/cars"; */
+  };
   const handleOnChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement & { files: FileList };
 
@@ -152,8 +155,7 @@ const AddCar = (props: Props) => {
     if (files) {
       setFile(target.files[0]);
       setImageError("");
-    }
-    else {
+    } else {
       // Eğer resim seçilmediyse hata mesajını ayarla
       setImageError("Lütfen bir resim seçiniz");
     }
@@ -170,13 +172,17 @@ const AddCar = (props: Props) => {
       enableReinitialize={true}
     >
       <SideBar>
-        <div className="container-card" style={{marginTop:"150px",color:"white"}}>
-          <div className="form">
-            <h2 className="h2-card">Araba Ekleme</h2>
-              <Form>
-                <div className="row space">
-                  <div id="select-block" className="col-md-6">
-                    <div className="mb-2">
+        <div
+          className="container-card"
+          style={{ marginTop: "150px", color: "white" }}
+        >
+          <div>
+            <Title style={{marginLeft: "35%"}}>Araba Ekleme</Title>
+            <Form>
+              <Row gutter={[16, 16]} style={{justifyContent: "space-around"}}>
+                <Col md={8}>
+                  <Row gutter={[8, 8]}>
+                    <Col span={16}>
                       <FormikSelect
                         label="Marka"
                         name="brandEntityId"
@@ -185,20 +191,20 @@ const AddCar = (props: Props) => {
                           label: brands.name,
                         }))}
                       />
-                    </div>
-
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikSelect
                         label="Araç Model "
                         name="carModelEntityId"
-                        options={carModelState.carModel.map((carModel: any) => ({
-                          value: carModel.id,
-                          label: carModel.name,
-                        }))}
+                        options={carModelState.carModel.map(
+                          (carModel: any) => ({
+                            value: carModel.id,
+                            label: carModel.name,
+                          })
+                        )}
                       />
-                    </div>
-
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikSelect
                         label="Kasa Tipi "
                         name="carBodyTypeEntityId"
@@ -209,8 +215,8 @@ const AddCar = (props: Props) => {
                           })
                         )}
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikSelect
                         label="Renk "
                         name="colorEntityId"
@@ -219,8 +225,8 @@ const AddCar = (props: Props) => {
                           label: color.name,
                         }))}
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikSelect
                         label="Araç Durumu "
                         name="vehicleStatusEntityId"
@@ -231,8 +237,8 @@ const AddCar = (props: Props) => {
                           })
                         )}
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikSelect
                         label="Vites Tipi "
                         name="shiftTypeEntityId"
@@ -243,18 +249,20 @@ const AddCar = (props: Props) => {
                           })
                         )}
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikSelect
                         label="Yakıt Tipi "
                         name="fuelTypeEntityId"
-                        options={fuelTypeState.fuelTypes.map((fuelType: any) => ({
-                          value: fuelType.id,
-                          label: fuelType.name,
-                        }))}
+                        options={fuelTypeState.fuelTypes.map(
+                          (fuelType: any) => ({
+                            value: fuelType.id,
+                            label: fuelType.name,
+                          })
+                        )}
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikSelect
                         label="Ehliyet Tipi "
                         name="expectedMinDrivingLicenseTypeId"
@@ -265,8 +273,8 @@ const AddCar = (props: Props) => {
                           })
                         )}
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikSelect
                         label="Segment "
                         name="carSegmentEntityId"
@@ -277,89 +285,126 @@ const AddCar = (props: Props) => {
                           })
                         )}
                       />
-                    </div>
-                    <div className="mb-2">
-                      <input type="file" name="image" onChange={handleOnChange} />
-                      {imageError && <Alert type="error" message={imageError} showIcon />}
-                    </div>
-                  </div>
-                  <div id="input-block" className="col-md-6">
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
+                      <input
+                        type="file"
+                        name="image"
+                        onChange={handleOnChange}
+                      />
+                      {imageError && (
+                        <Alert type="error" message={imageError} showIcon />
+                      )}
+                    </Col>
+                  </Row>
+                </Col>
+                <Col md={8}>
+                  <Row gutter={[16, 16]}>
+                    <Col span={16}>
                       <FormikInput
                         name="year"
                         label="Yıl "
                         placeHolder="Yıl Giriniz."
                         type="number"
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikInput
                         name="details"
                         label="Detay "
                         placeHolder="Detay Giriniz."
                         type="text"
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikInput
                         name="rentalPrice"
                         label="Araç Fiyatı "
                         placeHolder="Araç Fiyatı Giriniz."
                         type="number"
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikInput
                         name="licensePlate"
                         label="Plaka "
                         placeHolder="Plaka Giriniz."
                         type="text"
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikInput
                         name="kilometer"
                         label="Kilometre "
                         placeHolder="Kilometre Giriniz."
                         type="number"
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikInput
                         name="seat"
                         label="Koltuk Sayısı "
                         placeHolder="Koltuk Sayısı Giriniz."
                         type="number"
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={16}>
                       <FormikInput
                         name="luggage"
                         label="Bagaj Sayısı "
                         placeHolder="Bagaj Sayısı Giriniz."
                         type="number"
                       />
-                    </div>
-                    <div className="mb-2">
+                    </Col>
+                    <Col span={24}>
                       <FormikCheckbox
                         name="available"
                         label="Araba Geçerli Mi "
                       />
-                    </div>
-                    <div className="mb-2">
-                    <Button style={{marginTop:'30px', backgroundColor: "rgb(140,24,24)", color:"white", width:"200px" , borderRadius:"10px", marginLeft:"140px" }} htmlType="submit"> Ekle</Button>
-                     
-                    </div>
-                    <div style={{ width: "236px",marginTop:"20px",marginLeft:"36px"}}>
-                      {errorCustom && <Alert type="warning" message={errorCustom} showIcon />}
-                      {errorMessage && <Alert type="error" message={errorMessage} showIcon />}
-                      {!errorCustom && successMessage && (
-                        <Alert type="success" message={successMessage} />
-                      )}
+                    </Col>
+                    <Col span={16}>
+                      <Button
+                        style={{
+                          marginTop: "30px",
+                          backgroundColor: "rgb(140,24,24)",
+                          color: "white",
+                          width: "200px",
+                          borderRadius: "10px",
+                          marginLeft: "140px",
+                        }}
+                        htmlType="submit"
+                      >
+                        {" "}
+                        Ekle
+                      </Button>
+                    </Col>
+                    <Col span={24}>
+                      <div
+                        style={{
+                          width: "236px",
+                          marginTop: "20px",
+                          marginLeft: "36px",
+                        }}
+                      >
+                        {errorCustom && (
+                          <Alert
+                            type="warning"
+                            message={errorCustom}
+                            showIcon
+                          />
+                        )}
+                        {errorMessage && (
+                          <Alert type="error" message={errorMessage} showIcon />
+                        )}
+                        {!errorCustom && successMessage && (
+                          <Alert type="success" message={successMessage} />
+                        )}
                       </div>
-                  </div>
-                </div>
-              </Form>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Form>
           </div>
         </div>
       </SideBar>

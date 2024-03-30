@@ -5,6 +5,7 @@
     border-radius: 4px;
     padding: 8px 12px;
     outline: none;
+    width: 100%;
   }
   
   .inputForm:focus {
@@ -16,7 +17,7 @@
   }
   
   .text-danger {
-    color: #eb2f96;
+    color: rgb(126, 4, 10);
   }
   
   .form-label {

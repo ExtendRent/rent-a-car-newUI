@@ -13,7 +13,7 @@ type Props = {
 
 const FormikInput = (props: Props) => {
   return (
-    <div className="mb-3">
+    <div>
       <label className="form-label">{props.label}</label>
       <Field
         name={props.name}

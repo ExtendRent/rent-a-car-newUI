@@ -41,6 +41,10 @@ import AdminTable from "./pages/Admin/AdminTable";
 import PaymentTypeTable from "./pages/PaymentType/PaymentTypeTable";
 import PaymentDetailsTable from "./pages/PaymentDetails/PaymentDetailsTable";
 import AddCar from "./pages/Cars/AddCar";
+import AddCarModel from "./pages/CarModel/AddCarModel";
+import AddCarBodyType from "./pages/CarBodyType/AddCarBodyType";
+import AddColor from "./pages/Color/AddColor";
+import AddDiscountCode from "./pages/DiscountCode/AddDiscountCode";
 function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -155,6 +159,10 @@ function App() {
             <Route path="/adminPanel/paymentTypes" element={<PaymentTypeTable />}></Route>
             <Route path="/adminPanel/paymentDetails" element={<PaymentDetailsTable />}></Route>
             <Route path="/adminPanel/addCar" element={<AddCar />}></Route>
+            <Route path="/adminPanel/addCarModel" element={<AddCarModel />}></Route>
+            <Route path="/adminPanel/addCarBodyType" element={<AddCarBodyType />}></Route>
+            <Route path="/adminPanel/addColor" element={<AddColor />}></Route>
+            <Route path="/adminPanel/addDiscountCode" element={<AddDiscountCode />}></Route>
           </Routes>
         </MainLayout>
       </BrowserRouter>
