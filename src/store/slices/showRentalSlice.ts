@@ -12,7 +12,7 @@ import { AddRentalModel } from "../../models/Requests/Rental/AddRentalModel";
         const response = await service.add(rentalData);
         return response.data;
       } catch (error : any) {
-        if (error && error.response && error.response.data.response.errorCode === 5000 ||error.response.data.response.errorCode === 3000) {
+        if (error && error.response && error.response.data.response.errorCode === 5000 || error.response.data.response.errorCode === 3000  || error.response.data.response.errorCode === 1003 ) {
           throw error.response.data.response.details[0];
       }
       }

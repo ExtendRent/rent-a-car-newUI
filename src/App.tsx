@@ -40,6 +40,7 @@ import UserTable from "./pages/User/UserTable";
 import AdminTable from "./pages/Admin/AdminTable";
 import PaymentTypeTable from "./pages/PaymentType/PaymentTypeTable";
 import PaymentDetailsTable from "./pages/PaymentDetails/PaymentDetailsTable";
+import AddCar from "./pages/Cars/AddCar";
 function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -153,6 +154,7 @@ function App() {
             <Route path="/adminPanel/admins" element={<AdminTable />}></Route>
             <Route path="/adminPanel/paymentTypes" element={<PaymentTypeTable />}></Route>
             <Route path="/adminPanel/paymentDetails" element={<PaymentDetailsTable />}></Route>
+            <Route path="/adminPanel/addCar" element={<AddCar />}></Route>
           </Routes>
         </MainLayout>
       </BrowserRouter>

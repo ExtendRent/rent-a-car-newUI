@@ -170,7 +170,7 @@ const AddCar = (props: Props) => {
       enableReinitialize={true}
     >
       <SideBar>
-        <div className="container-card">
+        <div className="container-card" style={{marginTop:"150px",color:"white"}}>
           <div className="form">
             <h2 className="h2-card">Araba Ekleme</h2>
               <Form>

@@ -1,0 +1,42 @@
+.label-style {
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .inputSelect {
+    border-radius: 10px;
+    background-color: #9b9a9a4b;
+    color: red;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    outline: none;
+  }
+  
+  .inputSelect:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .selectMenu {
+    background-color: gray;
+  }
+  
+  .selectOption {
+    background-color: #9b9a9a4b;
+    color: white;
+  }
+  
+  .selectOption:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .selectOption--is-selected {
+    background-color: #f0f0f0;
+    color: black;
+  }
+  
+  .text-danger {
+    color: #ff0000; /* Red color for error messages */
+  }
+  

@@ -1,6 +1,6 @@
 import React from "react";
 import { ErrorMessage, Field } from "formik";
-
+import './FormikInput.css'
 type Props = {
     label: string;
     name: string;

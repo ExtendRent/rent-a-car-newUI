@@ -1,0 +1,26 @@
+.inputForm {
+    color: rgba(255, 255, 255, 0.93);
+    background-color: #121212;
+    border: 1px solid #7a7a7a;
+    border-radius: 4px;
+    padding: 8px 12px;
+    outline: none;
+  }
+  
+  .inputForm:focus {
+    border-color: rgb(126, 4, 10);
+  }
+  
+  .inputForm::placeholder {
+    color: white;
+  }
+  
+  .text-danger {
+    color: #eb2f96;
+  }
+  
+  .form-label {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
