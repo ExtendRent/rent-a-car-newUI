@@ -57,6 +57,23 @@ const routes = [
   },
   {
     path: "",
+    name: "Markalar",
+    icon: <FaMediumM  />,
+    subRoutes: [
+      {
+        path: "/adminPanel/AddBrand",
+        name: "Marka Ekleme ",
+        icon: <FaPlus  />,
+      },
+      {
+        path: "/adminPanel/Brands",
+        name: "Marka Listesi",
+        icon: <FaRedo   />,
+      },
+    ],
+  },
+  {
+    path: "",
     name: "Modeller",
     icon: <FaMastodon  />,
     subRoutes: [

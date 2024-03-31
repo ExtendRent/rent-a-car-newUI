@@ -45,6 +45,13 @@ import AddCarModel from "./pages/CarModel/AddCarModel";
 import AddCarBodyType from "./pages/CarBodyType/AddCarBodyType";
 import AddColor from "./pages/Color/AddColor";
 import AddDiscountCode from "./pages/DiscountCode/AddDiscountCode";
+import AddCarSegment from "./pages/CarSegment/AddCarSegment";
+import AddDrivingLicenseType from "./pages/DrivingLicenseType/AddDrivingLicenseType";
+import AddBrand from "./pages/Brands/AddBrand";
+import AddShiftType from "./pages/ShiftType/AddShiftType";
+import AddFuelType from "./pages/FuelType/AddFuelType";
+import AddAdmin from "./pages/Admin/AddAdmin";
+import AddEmployee from "./pages/Employee/AddEmployee";
 function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -163,6 +170,13 @@ function App() {
             <Route path="/adminPanel/addCarBodyType" element={<AddCarBodyType />}></Route>
             <Route path="/adminPanel/addColor" element={<AddColor />}></Route>
             <Route path="/adminPanel/addDiscountCode" element={<AddDiscountCode />}></Route>
+            <Route path="/adminPanel/addCarSegment" element={<AddCarSegment />}></Route>
+            <Route path="/adminPanel/addDrivingLicenseType" element={<AddDrivingLicenseType />}></Route>
+            <Route path="/adminPanel/addBrand" element={<AddBrand />}></Route>
+            <Route path="/adminPanel/addShiftType" element={<AddShiftType />}></Route>
+            <Route path="/adminPanel/addFuelType" element={<AddFuelType />}></Route>
+            <Route path="/adminPanel/addAdmin" element={<AddAdmin />}></Route>
+            <Route path="/adminPanel/addEmployee" element={<AddEmployee />}></Route>
           </Routes>
         </MainLayout>
       </BrowserRouter>
