@@ -135,7 +135,7 @@ const UpdateAdmin = (props: Props) => {
                 <Col span={32} style={{ marginTop: "15px" }}>
                   <FormikInput
                     name="emailAddress"
-                    label="email"
+                    label="Email"
                     placeHolder="Mail Adresi Giriniz"
                     type="text"
                   />

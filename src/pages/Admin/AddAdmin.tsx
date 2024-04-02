@@ -120,94 +120,91 @@ const AddAdmin = (props: Props) => {
                         <Form>
                             <Row gutter={[16, 16]} style={{ justifyContent: "space-around" }}>
                                 <Col md={8}>
-                                <div style={{ marginBottom: "20px" }}>
-                                        
-                                            <FormikInput
-                                                name="name"
-                                                label="İsim"
-                                                placeHolder="İsim Giriniz."
-                                                type='text'
-                                            />
-                                        
-                                        
-                                            <FormikInput
-                                                name="surname"
-                                                label="Soyisim"
-                                                placeHolder="İsim Giriniz."
-                                                type='text'
-                                            />
-                                        
-                                        
-                                            <FormikInput
-                                                name="emailAddress"
-                                                label="Mail Adresi"
-                                                placeHolder="Mail Adresi Giriniz."
-                                                type='text'
-                                            />
-                                        
-                                        
-                                            <FormikInput
-                                                name="password"
-                                                label="Şifre Giriniz"
-                                                placeHolder="Şifre Giriniz."
-                                                type='text'
-                                            />
-                                        
-                                        
-                                            <FormikInput
-                                                name="phoneNumber"
-                                                label="Telefon Numarası"
-                                                placeHolder="Telefon Numarası Giriniz."
-                                                type='text'
-                                            />
-                                        
-                                        
-                                            <FormikInput
-                                                name="salary"
-                                                label="Maaş "
-                                                placeHolder="Maaş Giriniz."
-                                                type='number'
-                                            />
-                                        
-                                        
-                                            <FormikInput
-                                                name="authority"
-                                                label="Yetki"
-                                                placeHolder="Yetki Giriniz."
-                                            />
-                                        
-                                        
-                                            <input type="file" name="image" onChange={handleOnChange} />
-                                            {imageError && (
-                                                <Alert type="error" message={imageError} showIcon />
-                                            )}
-                                        
-                                    
-                                
-                                
-                                    <Button
-                                        style={{
-                                            marginTop: "30px",
-                                            backgroundColor: "rgb(140,24,24)",
-                                            color: "white",
-                                            width: "200px",
-                                            borderRadius: "10px",
-                                            marginLeft: "140px",
-                                        }}
-                                        htmlType="submit"
+                                    <Col span={32}>
+                                        <FormikInput
+                                            name="name"
+                                            label="Ad"
+                                            placeHolder="Ad Giriniz."
+                                            type="text"
+                                        />
+                                    </Col>
+                                    <Col span={32} style={{ marginTop: "15px" }}>
+                                        <FormikInput
+                                            name="surname"
+                                            label="Soyad"
+                                            placeHolder="Soyadı Giriniz"
+                                            type="text"
+                                        />
+                                    </Col>
+                                    <Col span={32} style={{ marginTop: "15px" }}>
+                                        <FormikInput
+                                            name="emailAddress"
+                                            label="Email"
+                                            placeHolder="Mail Adresi Giriniz"
+                                            type="text"
+                                        />
+                                    </Col>
+                                    <Col span={32} style={{ marginTop: "15px" }}>
+                                        <FormikInput
+                                            name="password"
+                                            label="Şifre"
+                                            placeHolder="Şifre Giriniz"
+                                            type="text"
+                                        />
+                                    </Col>
+                                    <Col span={32} style={{ marginTop: "15px" }}>
+                                        <FormikInput
+                                            name="phoneNumber"
+                                            label="Telefon"
+                                            placeHolder="Telefon Giriniz"
+                                            type="text"
+                                        />
+                                    </Col>
+                                    <Col span={32} style={{ marginTop: "15px" }}>
+                                        <FormikInput
+                                            name="salary"
+                                            label="Maaş"
+                                            placeHolder="Maaş Giriniz"
+                                            type="number"
+                                        />
+                                    </Col>
+                                    <Col span={32} style={{ marginTop: "15px" }}>
+                                        <FormikInput
+                                            name="authority"
+                                            label="Yetki"
+                                            placeHolder="Yetki Giriniz"
+                                            type="text"
+                                        />
+                                    </Col>
+                                    <input type="file" name="image" onChange={handleOnChange} style={{ marginTop: "15px" }} />
+                                    {imageError && (
+                                        <Alert type="error" message={imageError} showIcon />
+                                    )}
+                                    <Col
+                                        span={32}
+                                        style={{ marginTop: "15px", marginLeft: "100px" }}
                                     >
-                                        {" "}
-                                        Ekle
-                                    </Button>
-                                
-                                
-                                    <div
-                                        style={{
-                                            width: "236px",
-                                            marginTop: "20px",
-                                            marginLeft: "36px",
-                                        }}
+                                        <Button
+                                            style={{
+                                                marginTop: "30px",
+                                                backgroundColor: "rgb(140,24,24)",
+                                                color: "white",
+                                                width: "200px",
+                                                borderRadius: "10px",
+                                                marginLeft: "140px",
+                                            }}
+                                            htmlType="submit"
+                                        >
+                                            {" "}
+                                            Ekle
+                                        </Button>
+                                    </Col>
+                                    <Col
+                                        span={32}
+                                        style={{ marginTop: "15px", marginLeft: "100px" }}
                                     >
+
+
                                         {errorCustom && (
                                             <Alert
                                                 type="warning"
@@ -221,11 +218,11 @@ const AddAdmin = (props: Props) => {
                                         {!errorCustom && successMessage && (
                                             <Alert type="success" message={successMessage} />
                                         )}
-                                    </div>
-                                    </div>
                                     </Col>
+
+                                </Col>
                             </Row>
-                            
+
                         </Form>
                     </div>
                 </div>
