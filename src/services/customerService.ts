@@ -2,6 +2,7 @@ import { AddCustomerModel } from "../models/Requests/Customer/AddCustomerModel";
 import { UpdateCustomerModel } from "../models/Requests/Customer/UpdateCustomerModel";
 import { GetAllCustomerModel } from "../models/Responses/Customer/GetAllCustomerModel";
 import { GetByIdCustomerModel } from "../models/Responses/Customer/GetByIdCustomerModel";
+import { RentalModel } from "../models/Responses/Rental/RentalModel";
 import axiosInstance from "../utils/axiosInterceptors";
 
 class CustomerService {

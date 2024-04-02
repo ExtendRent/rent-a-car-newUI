@@ -52,6 +52,24 @@ import AddShiftType from "./pages/ShiftType/AddShiftType";
 import AddFuelType from "./pages/FuelType/AddFuelType";
 import AddAdmin from "./pages/Admin/AddAdmin";
 import AddEmployee from "./pages/Employee/AddEmployee";
+import UpdateCar from "./pages/Cars/UpdateCar";
+import UpdateBrand from "./pages/Brands/UpdateBrand";
+import UpdateCarBodyType from "./pages/CarBodyType/UpdateCarBodyType";
+import UpdateColor from "./pages/Color/UpdateColor";
+import UpdateDiscountCode from "./pages/DiscountCode/UpdateDiscountCode";
+import UpdateDrivingLicenseType from "./pages/DrivingLicenseType/UpdateDrivingLicense";
+import UpdateFuelType from "./pages/FuelType/UpdateFuelType";
+import UpdateShiftType from "./pages/ShiftType/UpdateShiftType";
+import UpdateCarSegment from "./pages/CarSegment/UpdateCarSegment";
+import UpdateEmployee from "./pages/Employee/UpdateEmployee";
+import UpdatePassword from "./pages/User/UpdatePassword";
+import UpdateAdmin from "./pages/Admin/UpdateAdmin";
+import UpdateVehicleStatus from "./pages/VehicleStatus/UpdateVehicleStatus";
+import UpdatePaymentType from "./pages/PaymentType/UpdatePaymentType";
+import UpdatePaymentDetails from "./pages/PaymentDetails/UpdatePaymentDetails";
+import UpdateCarModel from "./pages/CarModel/UpdateCarModel";
+import ReturnRental from "./pages/Rental/ReturnRental";
+import PastRentalCarTable from "./pages/PastRentals/PastRentalCarTable";
 function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -177,6 +195,24 @@ function App() {
             <Route path="/adminPanel/addFuelType" element={<AddFuelType />}></Route>
             <Route path="/adminPanel/addAdmin" element={<AddAdmin />}></Route>
             <Route path="/adminPanel/addEmployee" element={<AddEmployee />}></Route>
+            <Route path="/adminPanel/updateCar/:id" element={<UpdateCar/>}></Route>
+            <Route path="/adminPanel/updateBrand/:id" element={<UpdateBrand/>}></Route>
+            <Route path="/adminPanel/updateCarBodyType/:id" element={<UpdateCarBodyType/>}></Route>
+            <Route path="/adminPanel/updateColor/:id" element={<UpdateColor/>}></Route>
+            <Route path="/adminPanel/updateDiscountCode/:id" element={<UpdateDiscountCode/>}></Route>
+            <Route path="/adminPanel/updateDrivingLicenseType/:id" element={<UpdateDrivingLicenseType />}></Route>
+            <Route path="/adminPanel/updateFuelType/:id" element={<UpdateFuelType/>}></Route>
+            <Route path="/adminPanel/updateShiftType/:id" element={<UpdateShiftType/>}></Route>
+            <Route path="/adminPanel/updateCarSegment/:id" element={<UpdateCarSegment />}></Route>
+            <Route path="/adminPanel/updateEmployee/:id" element={<UpdateEmployee/>}></Route>
+            <Route path="/adminPanel/users/updatePassword/:id" element={<UpdatePassword />}></Route>
+            <Route path="/adminPanel/updateAdmin/:id" element={<UpdateAdmin/>}></Route>
+            <Route path="/adminPanel/updateVehicleStatus/:id" element={<UpdateVehicleStatus />}></Route>
+            <Route path="/adminPanel/updatePaymentType/:id" element={<UpdatePaymentType />}></Route>
+            <Route path="/adminPanel/updatePaymentDetails/:id" element={<UpdatePaymentDetails />}></Route>
+            <Route path="/adminPanel/updateCarModel/:id" element={<UpdateCarModel/>}></Route>
+            <Route path="/adminPanel/returnRental/:id" element={<ReturnRental />}></Route>
+            <Route path="/allMyRentals/:id" element={<PastRentalCarTable />}></Route>
           </Routes>
         </MainLayout>
       </BrowserRouter>

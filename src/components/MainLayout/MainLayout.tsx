@@ -32,7 +32,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const menu = (
     <Menu>
     <Menu.Item key="profile">
-      <Link to="/profile"><UserOutlined style={{ marginRight: "8px" }} />Profil</Link>
+      <Link to={`/updateCustomer/${decodedToken?.id}`}><UserOutlined style={{ marginRight: "8px" }} />Hesabım</Link>
+    </Menu.Item>
+    <Menu.Item key="rental">
+      <Link to={`/allMyRentals/${decodedToken?.id}`}><UserOutlined style={{ marginRight: "8px" }} />Kiralama Geçmişim</Link>
     </Menu.Item>
     <Menu.Item key="settings">
       <Link to="/settings"><SettingOutlined style={{ marginRight: "8px" }} />Ayarlar</Link>

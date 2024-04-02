@@ -80,7 +80,7 @@ const RentalTable: React.FC = () => {
     const handleStartUpdate = (id: number) => {
         console.log("Start Update:", id);
         dispatch(startRental({ rentalId: id }));
-        window.location.reload();
+        //window.location.reload();
     };
 
     const handleReturnUpdate = (id: number) => {

@@ -92,7 +92,6 @@ const AddBrand = (props: Props) => {
                     className="container-card"
                     style={{ marginTop: "150px", color: "white" }}
                 >
-                    <div className="form">
                         <Title style={{ marginLeft: "35%" }}>Marka Ekleme</Title>
                         <Form>
                             <Row gutter={[16, 16]} style={{ justifyContent: "space-around" }}>
@@ -149,7 +148,6 @@ const AddBrand = (props: Props) => {
                             )}
                         </div>
                     </div>
-                </div>
             </SideBar>
         </Formik>
     );
