@@ -73,8 +73,6 @@ const UpdateAdmin = (props: Props) => {
     salary: Yup.number()
       .min(0, "Maaş en az 0 olmalıdır")
       .required("Maaş giriniz"),
-    imagePath: Yup.string().required("Fotoğraf Giriniz"),
-    authority: Yup.string().required("Yetki Giriniz"),
   });
   const initialValues = {
     id: adminId,
@@ -84,8 +82,7 @@ const UpdateAdmin = (props: Props) => {
     password: "",
     phoneNumber: admin?.phoneNumber,
     salary: admin?.salary,
-    imagePath: "",
-    authority: admin?.authority,
+    authority: admin?.status,
   };
 
   const handleUpdateAdmin = async (values: any) => {
@@ -164,14 +161,14 @@ const UpdateAdmin = (props: Props) => {
                     type="number"
                   />
                 </Col>
-                <Col span={32} style={{ marginTop: "15px" }}>
+                {/* <Col span={32} style={{ marginTop: "15px" }}>
                   <FormikInput
                     name="authority"
                     label="Yetki"
                     placeHolder="Yetki Giriniz"
                     type="text"
                   />
-                </Col>
+                </Col> */}
                 <Col
                   span={32}
                   style={{ marginTop: "15px", marginLeft: "100px" }}

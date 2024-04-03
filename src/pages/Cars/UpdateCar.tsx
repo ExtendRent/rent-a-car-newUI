@@ -155,7 +155,7 @@ const UpdateCar = (props: Props) => {
         };
         const imageResponse = await dispatch(addCarImages(thunkParams));
         if (imageResponse) {
-          const carImageEntityId = imageResponse.payload;
+          const carImageEntityId = imageResponse.payload.response;
           const updatedValues = { ...values, carImageEntityId };
           const response = await dispatch(updateCar(updatedValues));
           setSuccessMessage("İşlem başarıyla tamamlandı");
@@ -166,7 +166,7 @@ const UpdateCar = (props: Props) => {
       // Hata durumunda
       setErrorMessage("İşlem sırasında bir hata oluştu");
     }
-    //window.location.href = "/adminPanel/cars";
+    window.location.href = "/adminPanel/cars";
   };
   const handleOnChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement & { files: FileList };

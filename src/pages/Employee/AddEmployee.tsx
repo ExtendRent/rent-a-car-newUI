@@ -40,7 +40,7 @@ const AddEmployee = (props: Props) => {
             };
             const imageResponse = await dispatch(addUserImages(thunkParams));
             if (imageResponse) {
-                const userImageEntityId = imageResponse.payload;
+                const userImageEntityId = imageResponse.payload.response;
                 const updatedValues = { ...values, userImageEntityId };
                 const response = await dispatch(addEmployee(updatedValues));
                 setSuccessMessage("İşlem başarıyla tamamlandı");
@@ -174,14 +174,14 @@ const AddEmployee = (props: Props) => {
                                             type="number"
                                         />
                                     </Col>
-                                    <Col span={32} style={{ marginTop: "15px" }}>
+                                    {/* <Col span={32} style={{ marginTop: "15px" }}>
                                         <FormikInput
                                             name="authority"
                                             label="Yetki"
                                             placeHolder="Yetki Giriniz"
                                             type="text"
                                         />
-                                    </Col>
+                                    </Col> */}
 
                                     <input type="file" name="image" onChange={handleOnChange} style={{ marginTop: "15px" }}/>
                                     {imageError && (
