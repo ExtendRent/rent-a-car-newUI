@@ -1,8 +1,7 @@
 import React from "react";
 import { Typography, Row, Col, Card, Space, Divider, Button, Grid } from "antd";
 import { PhoneOutlined, MailOutlined, EnvironmentOutlined, FacebookOutlined, TwitterOutlined, LinkedinOutlined } from "@ant-design/icons";
-import mapImage from '../../assets/images/musteri.jpg'; // Statik harita resmi
-import contactImage from '../../assets/images/musteri.jpg'; // İletişim resmi
+import mapImage from '../../assets/images/extendRentShop.jpg'; // Statik harita resmi
 
 const { Title, Text } = Typography;
 const { useBreakpoint } = Grid;
@@ -27,7 +26,7 @@ const Contact: React.FC = () => {
           </div>
         </Col>
         <Col span={24} md={16}>
-          <img src={mapImage} alt="Harita" style={{ maxWidth: "100%" }} />
+          <img src={mapImage} alt="Harita" style={{ maxWidth: "90%", maxHeight: "60%" }} />
         </Col>
       </Row>
       <Divider style={{ backgroundColor: "#ccc", margin: "48px 0" }} />
