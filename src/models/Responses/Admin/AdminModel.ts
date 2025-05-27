@@ -7,6 +7,6 @@ export interface AdminModel{
     salary: number;
     userImageEntityImageUrl: string;
     deleted: boolean;
-    authority: string;
+    status: string;
 }
 

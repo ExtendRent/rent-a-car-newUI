@@ -36,9 +36,10 @@ const AddBrand = (props: Props) => {
                 image: formData,
                 brandName: values.brandName,
             };
+            
             const imageResponse = await dispatch(addBrandImages(thunkParams));
             if (imageResponse) {
-                const brandImageEntityId = imageResponse.payload;
+                const brandImageEntityId = imageResponse.payload.response;
                 const updatedValues = { ...values, brandImageEntityId };
                 const response = await dispatch(addBrand(updatedValues));
                 setSuccessMessage("İşlem başarıyla tamamlandı");
@@ -48,7 +49,7 @@ const AddBrand = (props: Props) => {
             // Hata durumunda
             setErrorMessage("İşlem sırasında bir hata oluştu");
         }
-        /* window.location.href = "/adminPanel/cars"; */
+         window.location.href = "/adminPanel/Brands";
     };
 
     const handleOnChange = async (e: React.ChangeEvent<HTMLInputElement>) => {

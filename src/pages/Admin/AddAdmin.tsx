@@ -40,7 +40,7 @@ const AddAdmin = (props: Props) => {
             };
             const imageResponse = await dispatch(addUserImages(thunkParams));
             if (imageResponse) {
-                const userImageEntityId = imageResponse.payload;
+                const userImageEntityId = imageResponse.payload.response;
                 const updatedValues = { ...values, userImageEntityId };
                 const response = await dispatch(addAdmin(updatedValues));
                 setSuccessMessage("İşlem başarıyla tamamlandı");
@@ -72,8 +72,7 @@ const AddAdmin = (props: Props) => {
             .required('Telefon numarası giriniz'),
         salary: Yup.number()
             .min(0, 'Maaş en az 0 olmalıdır')
-            .required('Maaş giriniz'),
-        authority: Yup.string().required('Yetki Giriniz'),
+            .required('Maaş giriniz')
     })
     const initialValues = {
         name: '',
@@ -82,7 +81,6 @@ const AddAdmin = (props: Props) => {
         password: '',
         phoneNumber: '',
         salary: 0,
-        authority: '',
     }
 
     const handleOnChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -168,14 +166,7 @@ const AddAdmin = (props: Props) => {
                                             type="number"
                                         />
                                     </Col>
-                                    <Col span={32} style={{ marginTop: "15px" }}>
-                                        <FormikInput
-                                            name="authority"
-                                            label="Yetki"
-                                            placeHolder="Yetki Giriniz"
-                                            type="text"
-                                        />
-                                    </Col>
+                                    
                                     <input type="file" name="image" onChange={handleOnChange} style={{ marginTop: "15px" }} />
                                     {imageError && (
                                         <Alert type="error" message={imageError} showIcon />

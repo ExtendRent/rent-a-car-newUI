@@ -70,13 +70,13 @@ const UpdateBrand = () => {
         };
         const imageResponse = await dispatch(addBrandImages(thunkParams));
         if (imageResponse) {
-          const brandImageEntityId = imageResponse.payload;
+          const brandImageEntityId = imageResponse.payload.response;
           const updatedValues = { ...values, brandImageEntityId };
           const response = await dispatch(updateBrand(updatedValues));
           setSuccessMessage("İşlem başarıyla tamamlandı");
         }
       }
-      //window.location.href = "/adminPanel/brands";
+      window.location.href = "/adminPanel/brands";
     } catch (error) {
       console.error("Error : ", error);
       setErrorMessage("İşlem sırasında bir hata oluştu");

@@ -93,11 +93,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             </li>
           </Menu.Item>
           <Menu.Item key="space1" style={{ margin: "0 10px" }}></Menu.Item>
+          {decodedToken?.role?.some(role => role === 'ADMIN') && (
           <Menu.Item style={{ color: "white" }} key="admin">
             <li className="nav-item nav-item-right">
               <Link to="/adminPanel">Admin Panel</Link>
             </li>
           </Menu.Item>
+          )}
           <Menu.Item key="space1" style={{ margin: "0 20px" }}></Menu.Item>
           {!decodedToken?.id && (
           <Menu.Item style={{ color: "white" }} key="login">
